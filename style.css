@@ -1,0 +1,212 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+
+}
+*{
+    box-sizing: border-box;
+}
+.preload{
+    width: 100%;
+    height: 100%;
+    background: radial-gradient( #FEFFFF, #A7CECC);
+    position: fixed;
+    opacity: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .5s;
+    z-index: 99;
+}
+.preload-icon{
+    -webkit-animation-name: blink;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+
+    -moz-animation-name: blink;
+    -moz-animation-duration: 1s;
+    -moz-animation-timing-function: linear;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-direction: alternate;
+
+    animation-name: blink;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+@keyframes blink {
+    0%{
+        opacity: .1;
+    }
+    50%{
+        opacity: .5;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.wrapper{
+    min-height: 100vh;
+    background: radial-gradient(at top, #FEFFFF, #A7CECC);
+    padding: 50px;
+}
+.todo{
+    margin: 100px auto 0;
+    max-width: 800px;
+
+}
+.todo-name{
+    text-align: center;
+    font-family: 'Lora', serif;
+    color: #A7CECC;
+    font-size: 40px;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+input{
+    font-family: 'Lora', serif;
+    color: #5c817f;
+    padding: 10px 50px 10px 10px;
+    font-size: 20px;
+    width: 100%;
+    height: 60px;
+    justify-content: center;
+    outline: none;
+    border: 3px solid rgba(213, 236, 255, 0.56);
+    border-radius: 20px;
+    background-color: rgb(242, 248, 255);
+    transition: .5s;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 10px rgba(0,0,0,0.25);
+}
+.todo-input{
+    position: relative;
+}
+.hint{
+    font-family: 'Roboto', sans-serif;
+    position: absolute;
+    left: 30px;
+    top: -40px;
+    background-color: #ffffff;
+    color: rgba(92, 129, 127, 0.51);
+    border-radius: 30px;
+    width: 230px;
+    height: 30px;
+    text-align: center;
+    padding: 5px;
+    font-size: 18px;
+    transition: .5s;
+    opacity: 0;
+}
+.hint:after{
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -27px;
+    border: 14px solid transparent; border-top: 13px solid #ffffff;
+    transform: translate(-10px, 0);
+}
+.todo-submit{
+    height: 40px;
+    width: 40px;
+    border: none;
+    background-color: #85a9a7;
+    border-radius: 50%;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    outline: none;
+    opacity: .8;
+    transition: .5s;
+    font-weight: 700;
+}
+.todo-submit:hover{
+    cursor: pointer;
+    background-color: #A7CECC;
+    box-shadow: 0 1px 7px rgba(0,0,0,0.7);
+}
+
+input::-webkit-input-placeholder {color: #5C817F; opacity: .3;}
+input::-moz-placeholder{color: #5C817F; opacity: .3;}
+input::-ms-input-placeholder{color: #5C817F; opacity: .3;}
+
+
+
+input:focus{
+    border: 3px solid #a0c8c6;
+    box-shadow: 0 10px 10px rgba(0,0,0,0.5);
+}
+
+
+.massage{
+    transition: 1s;
+    font-family: 'Roboto', sans-serif;
+    color: #ffffff;
+    margin: 20px;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #a7cecc;
+    font-size: 22px;
+    animation-name: blink;
+    animation-duration: 1s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.25);
+}
+.massage-text{
+    display: inline-block;
+    margin: 0;
+    max-width: 90%;
+    height: auto;
+    word-wrap:break-word;
+    padding-right: 5px;
+}
+
+.delete-massage{
+    border: 1px solid transparent;
+    background-color: rgba(255, 86, 77, 0.92);
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+
+.delete-massage:before{
+    content: "";
+    position: absolute;
+    top:10px;
+    left: 5px;
+    width: 10px;
+    height: 2px;
+    background-color: #ffffff;
+    transform: rotate(-45deg);
+
+}
+.delete-massage:after {
+    content: "";
+    top: 10px;
+    left: 5px;
+    position: absolute;
+    width: 10px;
+    height: 2px;
+    background-color: #ffffff;
+    transform: rotate(45deg);
+}
+
+.done{
+    background-color: green;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.8);
+    text-decoration: line-through;
+}
