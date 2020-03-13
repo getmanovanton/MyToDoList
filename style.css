@@ -53,10 +53,10 @@ html, body{
 .wrapper{
     min-height: 100vh;
     background: radial-gradient(at top, #FEFFFF, #A7CECC);
-    padding: 50px;
+    padding: 20px;
 }
 .todo{
-    margin: 100px auto 0;
+    margin: 50px auto 0;
     max-width: 800px;
 
 }
@@ -68,6 +68,33 @@ html, body{
     font-style: italic;
     margin-bottom: 20px;
 }
+.date{
+    text-align: center;
+    font-family: 'Lora', serif;
+    color: #A7CECC;
+    font-size: 20px;
+    font-style: italic;
+    margin-bottom: 20px;
+    padding-top: 3px;
+}
+.date-refresh{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+img{
+    display: block;
+}
+.refresh{
+    margin-left: 10px;
+    opacity: .6;
+    cursor: pointer;
+
+}
+.img-refresh{
+    padding: 0;
+}
+
 
 input{
     font-family: 'Lora', serif;

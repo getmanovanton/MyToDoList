@@ -8,10 +8,27 @@ window.addEventListener('DOMContentLoaded', function () {
         loader.style.opacity = "0";
         loader.style.visibility = "hidden";
     }
-    setTimeout(loaderOff, 3000);
+    setTimeout(loaderOff, 1000);
+
+
+
+
+    ////////////////////////////////////////    DATE
+
+
+
+
+     let date = new Date(),
+         dateArea = document.querySelector(".date"),
+         day = date.getDate(),
+         month = date.toLocaleString('en', { month: 'long' }),
+         year = date.getFullYear();
+        dateArea.innerHTML = ` Today: ${day} ${month} ${year}`;
+
 
 
     //////////////////////////////////////////    MAIN
+
 
     let button = document.querySelector('.todo-submit'),
         toDoText = document.querySelector('.todo-text'),
@@ -46,7 +63,32 @@ window.addEventListener('DOMContentLoaded', function () {
     }
     }
 
+
+
+
+/////////////////////////////////////////    REFRESH ALL
+
+
+    let refreshBtn = document.querySelector(".img-refresh");
+    refreshBtn.addEventListener("click",function () {
+        refreshBtn.style.transition = "1.5s";
+        refreshBtn.style.transform = "rotate(-720deg)";
+        setTimeout(()=>{
+            refreshBtn.style.transform = "rotate(0deg)";
+            refreshBtn.style.transition = "-1s"
+        }, 2000);
+
+        let deleteMassages = document.querySelectorAll(".massage");
+
+        deleteMassages.forEach((mas)=>mas.remove());
+
+        localStorage.clear();
+    });
+
+
 /////////////////////////////////////////    DELETE DONE MASSAGE
+
+
 
     massageArea.addEventListener('click', function (e) {
         let event = e.target;
