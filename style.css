@@ -208,7 +208,6 @@ input:focus{
     position: absolute;
     right: 5px;
     top: 5px;
-    z-index: 99;
 }
 
 .delete-massage:before{
