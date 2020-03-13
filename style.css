@@ -208,6 +208,7 @@ input:focus{
     position: absolute;
     right: 5px;
     top: 5px;
+    z-index: 99;
 }
 
 .delete-massage:before{
@@ -231,7 +232,13 @@ input:focus{
     background-color: #ffffff;
     transform: rotate(45deg);
 }
-
+.massage-time{
+    position: absolute;
+    right: 5px;
+    bottom: 1px;
+    font-size: 12px;
+    z-index: 1;
+}
 .done{
     background-color: green;
     box-shadow: 5px 5px 10px rgba(0,0,0,0.8);
