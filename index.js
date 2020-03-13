@@ -8,7 +8,7 @@ window.addEventListener('DOMContentLoaded', function () {
         loader.style.opacity = "0";
         loader.style.visibility = "hidden";
     }
-    setTimeout(loaderOff, 0);
+    setTimeout(loaderOff, 2000);
 
 
 
