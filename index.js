@@ -22,15 +22,7 @@ window.addEventListener('DOMContentLoaded', function () {
             dateArea = document.querySelector(".date"),
             day = date.getDate(),
             month = date.toLocaleString('en', { month: 'long' }),
-            year = date.getFullYear(),
-            hours = date.getHours(),
-            minutes = date.getMinutes();
-        if (minutes<10){
-            minutes = "0" + minutes
-        }
-        if (hours<10){
-            hours = "0" + hours
-        }
+            year = date.getFullYear();
         dateArea.innerHTML = ` Today: ${day} ${month} ${year}`;
     }
     todayDate();
@@ -122,29 +114,24 @@ window.addEventListener('DOMContentLoaded', function () {
 
     massageArea.addEventListener('click', function (e) {
         let event = e.target;
-        if(event.classList.contains("massage")){
-            event.classList.toggle("done");
+        function saveEvenToStorage() {
             list.forEach((txt, index) => {
                 if(txt.todo + txt.time === event.textContent && list[index].check !== true){
-                        list[index].check = true;
-                        localStorage.setItem("todo", JSON.stringify(list))
+                    list[index].check = true;
+                    localStorage.setItem("todo", JSON.stringify(list))
                 } else if (txt.todo + txt.time === event.textContent && list[index].check === true){
                     list[index].check = false;
                     localStorage.setItem("todo", JSON.stringify(list))
                 }
             });
         }
-        else if (event.classList.contains("massage-text")){
+        if(event.classList.contains("massage")){
+            event.classList.toggle("done");
+            saveEvenToStorage()
+        }
+        else if (event.classList.contains("massage-text") || event.classList.contains("massage-time") ){
             event.closest(".massage").classList.toggle("done");
-            list.forEach((txt, index) => {
-                if(txt.todo + txt.time === event.textContent && list[index].check !== true){
-                    list[index].check = true;
-                    localStorage.setItem("todo", JSON.stringify(list))
-                }else if (txt.todo + txt.time === event.textContent && list[index].check === true){
-                    list[index].check = false;
-                    localStorage.setItem("todo", JSON.stringify(list))
-                }
-            });
+            saveEvenToStorage()
         }
         else if (event.classList.contains("delete-massage")){
             list.forEach((txt, index) => {
@@ -156,19 +143,7 @@ window.addEventListener('DOMContentLoaded', function () {
             });
 
         }
-        else if (event.classList.contains("massage-time")){
-            event.closest(".massage").classList.toggle("done");
-            list.forEach((txt, index) => {
-                if(txt.todo + txt.time === event.textContent && list[index].check !== true){
-                    list[index].check = true;
-                    localStorage.setItem("todo", JSON.stringify(list))
-                }else if (txt.todo === event.textContent && list[index].check === true){
-                    list[index].check = false;
-                    localStorage.setItem("todo", JSON.stringify(list))
-                }
-            });
-        }
-    })
+    });
     /////////////////////////////////////////    SAVE MASSAGE ONCLICK
     button.addEventListener('click', ()=> {saveMassage(toDoText.value)} );
 
@@ -176,7 +151,7 @@ window.addEventListener('DOMContentLoaded', function () {
         if(e.code === "Enter"){
             saveMassage(toDoText.value)
         }
-    }
+    };
 
     /////////////////////////////////////////    LOCAL STORAGE
     
